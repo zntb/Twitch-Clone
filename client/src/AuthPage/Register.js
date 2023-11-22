@@ -11,8 +11,11 @@ import {
   validatePasswordConf,
   validateUsername,
 } from '../shared/validators';
+import { useRegister } from '../shared/hooks';
 
 export const Register = ({ switchAuthHandler }) => {
+  const { isLoading, register } = useRegister();
+
   const [formState, setFormState] = useState({
     email: {
       value: '',
@@ -76,6 +79,23 @@ export const Register = ({ switchAuthHandler }) => {
     }));
   };
 
+  const handleRegister = (event) => {
+    event.preventDefault();
+
+    register(
+      formState.email.value,
+      formState.password.value,
+      formState.username.value
+    );
+  };
+
+  const isSubmitButtonDisabled =
+    !formState.password.isValid ||
+    !formState.email.isValid ||
+    !formState.username.isValid ||
+    formState.password.value !== formState.passwordConf.value ||
+    isLoading;
+
   return (
     <div className="register-container">
       <Logo text={'Sign Up to Clone'} />
@@ -120,14 +140,7 @@ export const Register = ({ switchAuthHandler }) => {
           showErrorMessage={formState.passwordConf.showError}
           validationMessage={passwordConfValidationMessage}
         />
-        <button
-          disabled={
-            !formState.password.isValid ||
-            !formState.email.isValid ||
-            !formState.username.isValid ||
-            formState.password.value !== formState.passwordConf.value
-          }
-        >
+        <button onClick={handleRegister} disabled={isSubmitButtonDisabled}>
           Register
         </button>
       </form>
