@@ -4,3 +4,4 @@ export { getChannelDetails } from './channels/getChannelDetails.js';
 export { getChannels } from './channels/getChannels.js';
 export { getChannelSettings } from './settings/getChannelSettings.js';
 export { putChannelsettings } from './settings/putChannelsettings.js';
+export { patchChangePassword } from './settings/patchChangePassword.js';
