@@ -4,7 +4,7 @@ import Joi from 'joi';
 import { verifyToken } from '../middlewares/auth.js';
 import {
   getChannelSettings,
-  putChannelsettings,
+  putChannelSettings,
   patchChangePassword,
 } from '../controllers/controllers.js';
 
@@ -30,7 +30,7 @@ router.put(
   '/channel',
   verifyToken,
   validator.body(channelSettingsSchema),
-  putChannelsettings
+  putChannelSettings
 );
 
 router.patch(

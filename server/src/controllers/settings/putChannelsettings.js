@@ -1,7 +1,7 @@
 import User from '../../models/User.js';
 import Channel from '../../models/Channel.js';
 
-export const putChannelsettings = async (req, res) => {
+export const putChannelSettings = async (req, res) => {
   try {
     const { userId } = req.user;
 
