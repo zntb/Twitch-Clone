@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Channels } from './Channels';
+import { ChannelView } from './ChannelView';
 
 export const Content = () => {
   return (
@@ -8,7 +9,7 @@ export const Content = () => {
       <Routes>
         <Route path="settings" element={<div>Settings</div>} />
         <Route path="channels" element={<Channels />} />
-        <Route path="channel/:id" element={<div>Single Channel</div>} />
+        <Route path="channel/:id" element={<ChannelView />} />
       </Routes>
     </div>
   );
