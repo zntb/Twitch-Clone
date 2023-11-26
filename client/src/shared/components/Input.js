@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const AuthInput = ({
+export const Input = ({
   field,
   label,
   value,

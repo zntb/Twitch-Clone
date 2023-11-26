@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Logo } from './Logo';
-import { AuthInput } from './AuthInput';
+
 import {
   emailValidationMessage,
   passwordConfValidationMessage,
@@ -12,6 +12,7 @@ import {
   validateUsername,
 } from '../shared/validators';
 import { useRegister } from '../shared/hooks';
+import { Input } from '../shared/components/Input.js';
 
 export const Register = ({ switchAuthHandler }) => {
   const { isLoading, register } = useRegister();
@@ -100,7 +101,7 @@ export const Register = ({ switchAuthHandler }) => {
     <div className="register-container">
       <Logo text={'Sign Up to Clone'} />
       <form className="auth-form">
-        <AuthInput
+        <Input
           field={'email'}
           label={'Email'}
           value={formState.email.value}
@@ -110,7 +111,7 @@ export const Register = ({ switchAuthHandler }) => {
           showErrorMessage={formState.email.showError}
           validationMessage={emailValidationMessage}
         />
-        <AuthInput
+        <Input
           field={'username'}
           label={'Username'}
           value={formState.username.value}
@@ -120,7 +121,7 @@ export const Register = ({ switchAuthHandler }) => {
           showErrorMessage={formState.username.showError}
           validationMessage={usernameValidationMessage}
         />
-        <AuthInput
+        <Input
           field={'password'}
           label={'Password'}
           value={formState.password.value}
@@ -130,7 +131,7 @@ export const Register = ({ switchAuthHandler }) => {
           showErrorMessage={formState.password.showError}
           validationMessage={passwordValidationMessage}
         />
-        <AuthInput
+        <Input
           field={'passwordConf'}
           label={'Password confirmation'}
           value={formState.passwordConf.value}
