@@ -1,5 +1,10 @@
 import React from 'react';
-import { usernameValidationMessage } from '../../../shared/validators';
+import {
+  avatarUrlValidationMessage,
+  descriptionValidationMessage,
+  titleValidationMessage,
+  usernameValidationMessage,
+} from '../../../shared/validators';
 
 const inputs = [
   {
@@ -11,19 +16,19 @@ const inputs = [
   {
     field: 'title',
     label: 'Title',
-    validationMessage: 'title validation message',
+    validationMessage: titleValidationMessage,
     type: 'text',
   },
   {
     field: 'avatarUrl',
     label: 'Avatar Url',
-    validationMessage: 'avatar url validation message',
+    validationMessage: avatarUrlValidationMessage,
     type: 'text',
   },
   {
     field: 'description',
     label: 'Description',
-    validationMessage: 'description validation message',
+    validationMessage: descriptionValidationMessage,
     type: 'text',
     textarea: true,
   },
