@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import {
-  avatarUrlValidationMessage,
-  descriptionValidationMessage,
   titleValidationMessage,
   usernameValidationMessage,
-  validateAvatarUrl,
-  validateDescription,
-  validateTitle,
+  avatarUrlValidationMessage,
+  descriptionValidationMessage,
   validateUsername,
+  validateAvatarUrl,
+  validateTitle,
+  validateDescription,
 } from '../../../shared/validators';
-import { Input } from '../../../shared/components/Input.js';
+import { Input } from '../../../shared/components';
 
 const inputs = [
   {
@@ -103,10 +103,11 @@ export const ChannelSettings = ({ settings }) => {
     }));
   };
 
-  const HandleFormSubmit = (event) => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    // TODO: save settings using http request
+    // TODO
+    // save settings using http request
   };
 
   const isSubmitButtonDisabled =
@@ -131,7 +132,7 @@ export const ChannelSettings = ({ settings }) => {
           textarea={input.textarea}
         />
       ))}
-      <button onClick={HandleFormSubmit} disabled={isSubmitButtonDisabled}>
+      <button onClick={handleFormSubmit} disabled={isSubmitButtonDisabled}>
         Save Changes
       </button>
     </form>
