@@ -14,7 +14,7 @@ export const Settings = () => {
   return (
     <div className="settings-container">
       <span>Settings</span>
-      <ChannelSettings />
+      <ChannelSettings settings={channelSettings} />
       <StreamKey streamKey={channelSettings.streamKey} />
     </div>
   );
