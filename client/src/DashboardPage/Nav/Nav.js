@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../resources/images/logoPlaceholder.svg';
 import { useUserDetails } from '../../shared/hooks';
 
@@ -27,16 +28,33 @@ const NavButton = ({ text, onclickHandler }) => {
 export const Nav = () => {
   const { isLogged } = useUserDetails();
 
+  const navigate = useNavigate();
+
+  const handleNavigateToAuth = () => {
+    navigate('/auth');
+  };
+
+  const handleNavigateToSettings = () => {
+    navigate('/settings');
+  };
+
+  const handleNavigateToChannels = () => {
+    navigate('/channels');
+  };
+
   return (
     <div className="nav-container">
       <NavLogo />
       <div className="nav-buttons-container">
-        <NavButton text="Browse" onclickHandler={() => {}} />
+        <NavButton text="Browse" onclickHandler={handleNavigateToChannels} />
         {!isLogged ? (
-          <NavButton text="Login" onclickHandler={() => {}} />
+          <NavButton text="Login" onclickHandler={handleNavigateToAuth} />
         ) : (
           <div>
-            <NavButton text="My Account" onclickHandler={() => {}} />
+            <NavButton
+              text="My Account"
+              onclickHandler={handleNavigateToSettings}
+            />
             <NavButton text="Logout" onclickHandler={() => {}} />
           </div>
         )}
