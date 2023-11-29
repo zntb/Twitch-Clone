@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { logout as logoutHandler } from '../utils';
 
 const getUserDetails = () => {
   const userDetails = localStorage.getItem('user');
@@ -13,8 +14,7 @@ export const useUserDetails = () => {
   const [userDetails, setUserDetails] = useState(getUserDetails());
 
   const logout = () => {
-    // logout logic
-    setUserDetails(null);
+    logoutHandler();
   };
 
   return {
