@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { getChannelsettings } from '../../api/api';
+import { getChannelsettings, updateChannelSettings } from '../../api/api';
 
 export const useChannelSettings = () => {
   const [channelSettings, setChannelSettings] = useState(null);
@@ -24,8 +24,17 @@ export const useChannelSettings = () => {
     });
   };
 
-  const saveSettings = async () => {
-    //
+  const saveSettings = async (data) => {
+    const response = await updateChannelSettings(data);
+
+    if (response.error) {
+      return toast.error(
+        response.exception?.response?.data ||
+          'Error occured when saving channel details!'
+      );
+    }
+
+    toast.success('Channel settings saved succesfully.');
   };
 
   useEffect(() => {

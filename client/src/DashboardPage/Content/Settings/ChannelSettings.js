@@ -39,7 +39,7 @@ const inputs = [
   },
 ];
 
-export const ChannelSettings = ({ settings }) => {
+export const ChannelSettings = ({ settings, saveSettings }) => {
   const [formState, setFormState] = useState({
     title: {
       isValid: false,
@@ -106,8 +106,12 @@ export const ChannelSettings = ({ settings }) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    // TODO
-    // save settings using http request
+    saveSettings({
+      username: formState.username.value,
+      title: formState.title.value,
+      description: formState.description.value,
+      avatarUrl: formState.avatarUrl.value,
+    });
   };
 
   const isSubmitButtonDisabled =
