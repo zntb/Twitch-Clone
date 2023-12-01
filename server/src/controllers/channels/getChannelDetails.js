@@ -25,8 +25,10 @@ export const getChannelDetails = async (req, res) => {
       isOnline,
       streamUrl: streamUrl,
     });
-  } catch (error) {
-    console.log(error);
-    return res.status(500).send('Something went wrong!');
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(500)
+      .send('Channel not found. Please check you channel url');
   }
 };

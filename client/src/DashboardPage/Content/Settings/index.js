@@ -1,1 +1,1 @@
-export { Settings } from './Settings.js';
+export { Settings } from './Settings';
