@@ -41,14 +41,10 @@ export const useChannels = () => {
     });
   };
 
-  useEffect(() => {
-    console.log(channels);
-  }, [channels]);
-
   return {
     getChannels,
     isFetching: !Boolean(channels),
-    allChannels: channels.channels,
-    followedChannels: channels.followedChannels,
+    allChannels: channels?.channels,
+    followedChannels: channels?.followedChannels,
   };
 };

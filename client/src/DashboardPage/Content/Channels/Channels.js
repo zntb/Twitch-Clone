@@ -31,10 +31,10 @@ export const dummyChannels = [
     isOnline: true,
   },
 ];
-export const Channels = () => {
+export const Channels = ({ channels }) => {
   return (
     <div className="channels-container">
-      {dummyChannels.map((channel) => (
+      {channels.map((channel) => (
         <ChannelCard
           key={channel.id}
           title={channel.title}
