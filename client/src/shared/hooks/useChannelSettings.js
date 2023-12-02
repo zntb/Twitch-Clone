@@ -39,7 +39,7 @@ export const useChannelSettings = () => {
 
   useEffect(() => {
     fetchChannelSettings();
-  });
+  }, []);
 
   return {
     isFetching: !channelSettings,
