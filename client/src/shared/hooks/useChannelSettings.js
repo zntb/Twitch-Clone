@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { getChannelsettings, updateChannelSettings } from '../../api/api';
+import { getChannelSettings, updateChannelSettings } from '../../api/api';
 
 export const useChannelSettings = () => {
   const [channelSettings, setChannelSettings] = useState(null);
 
   const fetchChannelSettings = async () => {
-    const response = await getChannelsettings();
+    const response = await getChannelSettings();
 
     if (response.error) {
       return toast.error(

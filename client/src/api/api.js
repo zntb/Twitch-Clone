@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { logout } from '../shared/utils';
 
 const apiClient = axios.create({
   baseURL: 'http://localhost:5002/api',
@@ -43,7 +44,7 @@ export const register = async (data) => {
   }
 };
 
-export const getChannelsettings = async () => {
+export const getChannelSettings = async () => {
   try {
     return await apiClient.get('/settings/channel');
   } catch (exception) {
@@ -100,7 +101,20 @@ export const getChannels = async () => {
 
 export const getChannelDetails = async (channelId) => {
   try {
-    return await getChannels(`/channel/${channelId}`);
+    return await apiClient.get(`/channels/${channelId}`);
+  } catch (exception) {
+    return {
+      error: true,
+      exception,
+    };
+  }
+};
+
+export const followChannel = async (channelId) => {
+  try {
+    return await apiClient.post('/channels/follow', {
+      channelId,
+    });
   } catch (exception) {
     return {
       error: true,
