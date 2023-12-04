@@ -1,3 +1,4 @@
+import axios from 'axios';
 import User from '../../models/User.js';
 import Channel from '../../models/Channel.js';
 
@@ -15,7 +16,22 @@ export const getChannelDetails = async (req, res) => {
 
     const streamUrl = `http://localhost:8000/live/${channel.streamKey}.flv`;
 
-    const isOnline = false;
+    const requestData = await axios.get('http://localhost:8000/api/streams');
+
+    const activeStreams = requestData.data;
+
+    let liveStreams = [];
+
+    for (const streamId in activeStreams?.live) {
+      if (
+        activeStreams.live[streamId].publisher &&
+        activeStreams.live[streamId].publisher !== null
+      ) {
+        liveStreams.push(streamId);
+      }
+    }
+
+    const isOnline = liveStreams.includes(channel.streamKey);
 
     return res.status(200).json({
       id: channel._id,
