@@ -19,7 +19,7 @@ const messages = [
   {
     author: 'John',
     content: 'Hello World!',
-    id: 3,
+    id: 4,
   },
 ];
 
