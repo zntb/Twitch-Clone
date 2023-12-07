@@ -1,27 +1,27 @@
 import React from 'react';
 
-const messages = [
-  {
-    author: 'John',
-    content: 'Hello World!',
-    id: 1,
-  },
-  {
-    author: 'John',
-    content: 'Hello World!',
-    id: 2,
-  },
-  {
-    author: 'John',
-    content: 'Hello World!',
-    id: 3,
-  },
-  {
-    author: 'John',
-    content: 'Hello World!',
-    id: 4,
-  },
-];
+// const messages = [
+//   {
+//     author: 'John',
+//     content: 'Hello World!',
+//     id: 1,
+//   },
+//   {
+//     author: 'John',
+//     content: 'Hello World!',
+//     id: 2,
+//   },
+//   {
+//     author: 'John',
+//     content: 'Hello World!',
+//     id: 3,
+//   },
+//   {
+//     author: 'John',
+//     content: 'Hello World!',
+//     id: 4,
+//   },
+// ];
 
 const Message = ({ author, content }) => {
   return (
@@ -32,7 +32,7 @@ const Message = ({ author, content }) => {
   );
 };
 
-export const Messages = () => {
+export const Messages = ({ messages }) => {
   return (
     <div className="chat-messages-container">
       {messages.map((message) => (

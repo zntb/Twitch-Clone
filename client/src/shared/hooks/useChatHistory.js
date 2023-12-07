@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useStore } from '../../store';
 import {
   closeChatSubscription,
   getChatHistory,
@@ -7,6 +8,7 @@ import {
 import { useUserDetails } from './useUserDetails';
 
 export const useChatHistory = (channelId) => {
+  const { chatHistory } = useStore();
   const { isLogged, username } = useUserDetails();
 
   useEffect(() => {
@@ -25,7 +27,7 @@ export const useChatHistory = (channelId) => {
   };
 
   return {
-    messages: [],
+    messages: chatHistory?.channelId === channelId ? chatHistory.messages : [],
     sendMessage,
   };
 };
