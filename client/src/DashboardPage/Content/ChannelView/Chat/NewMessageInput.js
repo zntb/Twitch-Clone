@@ -9,9 +9,11 @@ export const NewMessageInput = ({ sendMessage }) => {
 
   const handleSendMessage = () => {
     // send message tothe server
-
-    // after sending message, reset input value
-    setMessageContent('');
+    if (messageContent.length > 0) {
+      sendMessage(messageContent);
+      // after sending message, reset input value
+      setMessageContent('');
+    }
   };
 
   const handleKeyPress = (event) => {

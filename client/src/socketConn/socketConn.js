@@ -6,7 +6,7 @@ export const connectWithSocketServer = () => {
   socket = io('http://localhost:5002');
 
   socket.on('connect', () => {
-    console.log('succesfully connected socket.io');
+    console.log('successfully connected with socket.io server');
     console.log(socket.id);
   });
 
@@ -18,4 +18,11 @@ export const connectWithSocketServer = () => {
 
 export const getChatHistory = (channelId) => {
   socket.emit('chat-history', channelId);
+};
+
+export const sendChatMessage = (toChannel, message) => {
+  socket.emit('chat-message', {
+    toChannel,
+    message,
+  });
 };
