@@ -26,5 +26,9 @@ export const registerSocketServer = (server) => {
         message: data.message,
       });
     });
+
+    socket.on('chat-unsubscribe', (channelId) => {
+      socket.leave(channelId);
+    });
   });
 };
