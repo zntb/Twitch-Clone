@@ -21,7 +21,7 @@ export const ChannelView = ({ getChannels }) => {
 
   useEffect(() => {
     getChannelDetails(id);
-  }, []);
+  }, [id]);
 
   if (isFetching) {
     return <LoadingSpinner />;

@@ -22,7 +22,7 @@ export const NewMessageInput = ({ sendMessage }) => {
     }
   };
 
-  console.log(messageContent);
+  // console.log(messageContent);
 
   return (
     <div className="chat-message-input-container">
