@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
-import {
-  getFollowedChannels,
-  getChannels as getChannelsRequest,
-} from '../../api';
+import { getFollowedChannels, getChannels as getChannelsRequest } from '../../api';
 
 export const useChannels = () => {
   const [channels, setChannels] = useState(null);
@@ -12,10 +9,7 @@ export const useChannels = () => {
     const channelsData = await getChannelsRequest();
 
     if (channelsData.error) {
-      return toast.error(
-        channelsData.exception?.response?.data ||
-          'Error occured when fetching the channels!'
-      );
+      return toast.error(channelsData.exception?.response?.data || 'Error occured when fetching the channels!');
     }
 
     if (!isLogged) {
@@ -28,15 +22,14 @@ export const useChannels = () => {
 
     if (followedChannelsData.error) {
       return toast.error(
-        followedChannelsData.exception?.response?.data ||
-          'Error occured when fetching the followed channels!'
+        followedChannelsData.exception?.response?.data || 'Error occured when fetching the followed channels!',
       );
     }
 
     setChannels({
       channels: channelsData.data.channels,
       followedChannels: channelsData.data.channels.filter((channel) =>
-        followedChannelsData.data.followedChannels.includes(channel.id)
+        followedChannelsData.data.followedChannels.includes(channel.id),
       ),
     });
   };

@@ -16,12 +16,12 @@ export const patchChangePassword = async (req, res) => {
     }
 
     // encrypt the new password
-    const encryptedPassword = await bcrypt.hash(newPassword, 12);
+    const encryptedPassword = await bcrypt.hash(newPassword, process.env.SALT_ROUNDS);
 
     // update user document
     await User.updateOne({ _id: userId }, { password: encryptedPassword });
 
-    return res.status(200).send('Password changed succesfully.');
+    return res.status(200).send('Password changed successfully.');
   } catch (error) {
     return res.status(500).send('Something went wrong! Please try again.');
   }

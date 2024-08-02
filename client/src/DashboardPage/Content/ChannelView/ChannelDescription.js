@@ -15,13 +15,7 @@ const FollowButton = ({ channelId, getChannels }) => {
   );
 };
 
-export const ChannelDescription = ({
-  username,
-  title,
-  description,
-  channelId,
-  getChannels,
-}) => {
+export const ChannelDescription = ({ username, title, description, channelId, getChannels }) => {
   const { isLogged } = useUserDetails();
 
   return (
@@ -30,11 +24,7 @@ export const ChannelDescription = ({
         {username}
         <span>
           {isLogged && (
-            <FollowButton
-              className="channel-follow-button"
-              channelId={channelId}
-              getChannels={getChannels}
-            />
+            <FollowButton className="channel-follow-button" channelId={channelId} getChannels={getChannels} />
           )}
         </span>
       </span>

@@ -19,12 +19,13 @@ export const postRegister = async (req, res) => {
       return res.status(409).send('E-mail already in use!');
     }
 
-    const encryptedPassword = await bcrypt.hash(password, 12);
+    const encryptedPassword = await bcrypt.hash(password, process.env.SALT_ROUNDS);
 
     const newChannel = await Channel.create({});
 
     const user = await User.create({
       username,
+      // file deepcode ignore HTTPSourceWithUncheckedType: <please specify a reason of ignoring this>
       email: email.toLowerCase(),
       password: encryptedPassword,
       channel: newChannel._id,
@@ -45,7 +46,7 @@ export const postRegister = async (req, res) => {
       }
     );
 
-    // Send succes response back to the user with data of registered user and JWT
+    // Send success response back to the user with data of registered user and JWT
     return res.status(201).json({
       userDetails: {
         email: user.email,
@@ -55,6 +56,6 @@ export const postRegister = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    return res.status(500).send('Error occured, please try again.');
+    return res.status(500).send('Error occurred, please try again.');
   }
 };

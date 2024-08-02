@@ -9,8 +9,7 @@ import { connectWithSocketServer } from '../socketConn/socketConn';
 import './dashboardPage.css';
 
 export const DashboardPage = () => {
-  const { getChannels, isFetching, followedChannels, allChannels } =
-    useChannels();
+  const { getChannels, isFetching, followedChannels, allChannels } = useChannels();
   const { isLogged } = useUserDetails();
 
   useEffect(() => {

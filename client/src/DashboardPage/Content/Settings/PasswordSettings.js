@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import {
-  passwordValidationMessage,
-  validatePassword,
-} from '../../../shared/validators';
+import { passwordValidationMessage, validatePassword } from '../../../shared/validators';
 import { Input } from '../../../shared/components';
 import { useChangePassword } from '../../../shared/hooks/useChangePassword';
 
@@ -60,8 +57,7 @@ export const PasswordSettings = () => {
     }));
   };
 
-  const isSubmitButtonDisabled =
-    !formState.password.isValid || !formState.newPassword.isValid;
+  const isSubmitButtonDisabled = !formState.password.isValid || !formState.newPassword.isValid;
 
   const handleFormSubmit = (event) => {
     event.preventDefault();

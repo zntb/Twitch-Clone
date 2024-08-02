@@ -16,5 +16,5 @@ root.render(
         <Route path="/*" element={<DashboardPage />} />
       </Routes>
     </App>
-  </BrowserRouter>
+  </BrowserRouter>,
 );

@@ -1,6 +1,1 @@
-export {
-  connectWithSocketServer,
-  getChatHistory,
-  sendChatMessage,
-  closeChatSubscription,
-} from './socketConn';
+export { connectWithSocketServer, getChatHistory, sendChatMessage, closeChatSubscription } from './socketConn';

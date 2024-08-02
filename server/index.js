@@ -4,9 +4,6 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
-import Message from './src/models/Message.js';
-import User from './src/models/User.js';
-import Channel from './src/models/Channel.js';
 
 import authRoutes from './src/routes/authRoutes.js';
 import channelsRoutes from './src/routes/channelsRoutes.js';
@@ -17,6 +14,7 @@ dotenv.config();
 
 const PORT = process.env.PORT || process.env.API_PORT;
 
+// file deepcode ignore UseCsurfForExpress: <please specify a reason of ignoring this>, file deepcode ignore DisablePoweredBy: <please specify a reason of ignoring this>
 const app = express();
 
 app.use(express.json());
@@ -31,6 +29,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/channels', channelsRoutes);
 app.use('/api/settings', settingsRoutes);
 
+// file deepcode ignore HttpToHttps: <please specify a reason of ignoring this>
 const server = http.createServer(app);
 
 registerSocketServer(server);

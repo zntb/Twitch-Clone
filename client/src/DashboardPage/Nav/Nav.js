@@ -6,13 +6,7 @@ import { useUserDetails } from '../../shared/hooks';
 const NavLogo = () => {
   return (
     <div className="nav-logo-container">
-      <img
-        className="nav-logo"
-        width="100%"
-        height="100%"
-        src={logo}
-        alt="Logo"
-      />
+      <img className="nav-logo" width="100%" height="100%" src={logo} alt="Logo" />
     </div>
   );
 };
@@ -55,10 +49,7 @@ export const Nav = () => {
           <NavButton text="Login" onclickHandler={handleNavigateToAuth} />
         ) : (
           <div>
-            <NavButton
-              text="My Account"
-              onclickHandler={handleNavigateToSettings}
-            />
+            <NavButton text="My Account" onclickHandler={handleNavigateToSettings} />
             <NavButton text="Logout" onclickHandler={handleLogout} />
           </div>
         )}

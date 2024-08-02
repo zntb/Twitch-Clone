@@ -16,7 +16,7 @@ export const postFollowChannel = async (req, res) => {
 
     await userData.save();
 
-    return res.status(200).send('Channel followed succesfully.');
+    return res.status(200).send('Channel followed successfully.');
   } catch (error) {
     console.log(error);
     return res.status(500).send('Something went wrong! Please try again.');

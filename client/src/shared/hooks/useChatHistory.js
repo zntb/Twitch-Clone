@@ -1,10 +1,6 @@
 import { useEffect } from 'react';
 import { useStore } from '../../store';
-import {
-  closeChatSubscription,
-  getChatHistory,
-  sendChatMessage,
-} from '../../socketConn/socketConn';
+import { closeChatSubscription, getChatHistory, sendChatMessage } from '../../socketConn/socketConn';
 import { useUserDetails } from './useUserDetails';
 
 export const useChatHistory = (channelId) => {

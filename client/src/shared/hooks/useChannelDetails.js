@@ -10,10 +10,7 @@ export const useChannelDetails = () => {
     const responseData = await getChannelDetailsRequest(id);
 
     if (responseData.error) {
-      return toast.error(
-        responseData.exception?.response?.data ||
-          'Error occured when fetching channel details!'
-      );
+      return toast.error(responseData.exception?.response?.data || 'Error occured when fetching channel details!');
     }
 
     setChannelDetails(responseData.data);

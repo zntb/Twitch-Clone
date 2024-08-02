@@ -1,5 +1,5 @@
 {
-  "name": "rmtp-server",
+  "name": "rtmp-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-media-server": "^2.6.2"
+    "node-media-server": "^2.7.0"
   }
 }

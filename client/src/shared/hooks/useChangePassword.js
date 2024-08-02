@@ -10,8 +10,7 @@ export const useChangePassword = () => {
 
     if (responseData.error) {
       return toast.error(
-        responseData.exception?.response?.data ||
-          'Error occured while trying to change password! Please try again.'
+        responseData.exception?.response?.data || 'Error occured while trying to change password! Please try again.',
       );
     }
 

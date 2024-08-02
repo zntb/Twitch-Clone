@@ -6,10 +6,7 @@ export const useFollowChannel = () => {
     const responseData = await followChannelRequest(channelId);
 
     if (responseData.error) {
-      return toast.error(
-        responseData.exception?.response?.data ||
-          'Error occured when trying to follow the channel!'
-      );
+      return toast.error(responseData.exception?.response?.data || 'Error occured when trying to follow the channel!');
     }
 
     toast.success('Channel followed successfully.');

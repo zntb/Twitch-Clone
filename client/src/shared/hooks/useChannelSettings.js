@@ -9,10 +9,7 @@ export const useChannelSettings = () => {
     const response = await getChannelSettings();
 
     if (response.error) {
-      return toast.error(
-        response.exception?.response?.data ||
-          'Error occured when fetching channel settings!'
-      );
+      return toast.error(response.exception?.response?.data || 'Error occured when fetching channel settings!');
     }
 
     setChannelSettings({
@@ -28,10 +25,7 @@ export const useChannelSettings = () => {
     const response = await updateChannelSettings(data);
 
     if (response.error) {
-      return toast.error(
-        response.exception?.response?.data ||
-          'Error occured when saving channel details!'
-      );
+      return toast.error(response.exception?.response?.data || 'Error occured when saving channel details!');
     }
 
     toast.success('Channel settings saved succesfully.');

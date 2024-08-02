@@ -34,16 +34,9 @@ export const Input = ({
           style={{ maxWidth: '400px', resize: 'vertical' }}
         />
       ) : (
-        <input
-          type={type}
-          value={value}
-          onChange={handleValueChange}
-          onBlur={handleInputBlur}
-        />
+        <input type={type} value={value} onChange={handleValueChange} onBlur={handleInputBlur} />
       )}
-      <span className="auth-form-validation-message">
-        {showErrorMessage && validationMessage}
-      </span>
+      <span className="auth-form-validation-message">{showErrorMessage && validationMessage}</span>
     </>
   );
 };

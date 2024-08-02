@@ -19,12 +19,12 @@ export const emitChatHistory = async (socket, channelId) => {
     console.log(channelId);
 
     socket.emit('chat-history', {
-      errorOccured: true,
+      errorOccurred: true,
     });
   } catch (error) {
     console.log(error);
     socket.emit('chat-history', {
-      errorOccured: true,
+      errorOccurred: true,
     });
   }
 };

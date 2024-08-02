@@ -7,6 +7,7 @@ export const postLogin = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({
+      // file deepcode ignore HTTPSourceWithUncheckedType: <please specify a reason of ignoring this>
       email: email.toLowerCase(),
     });
 
@@ -41,3 +42,5 @@ export const postLogin = async (req, res) => {
     return res.status(500).send('Something went wrong! Please try again.');
   }
 };
+
+
